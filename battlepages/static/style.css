@@ -1,0 +1,235 @@
+html, body {
+	height: 100%;
+	width: 100%;
+	font-family: 'Lato', Verdana, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+	min-width: 640px;
+	position: relative;
+  background-size: 30px 30px;
+  margin: 0 auto;
+  background-image: radial-gradient(#fbefc6 15%, transparent 20%),
+                    radial-gradient(#f2b3b3 15%, transparent 20%);
+  background-position: 0 0, 15px 15px;
+}
+
+hr{
+  border-width: 1px;
+  border-color: #f0f0f0;
+  border-style: solid;
+  margin: 20px 0px 20px 0px;
+}
+
+.container{
+  margin: auto;
+  width: 90%;
+  min-height: 100%;
+  max-width: 900px;
+  box-shadow: 0px 0px 20px rgba(0,0,0,0.3);
+  background-color: #fff;
+  position: relative;
+}
+.title{
+  width: 100%;
+  background-color: #f8efec;
+  padding: 20px 0px 20px 0px;
+  text-align: center;
+  color: #f5669d;
+}
+
+.contents{
+  padding: 25px 0px 10px 0px;
+  display: flex;
+}
+
+#manage-display {
+  width: 100%;
+
+}
+
+
+.margin{
+  border-left:  70px;
+  border-right: 70px;
+  border-style: solid;
+  box-sizing: border-box;
+  border-color: rgba(0, 0, 0, 0);
+}
+
+#title {
+    font-size: 30px;
+}
+
+.except-for-log {
+  width: 700px;
+  margin: 0;
+  display: inline-block;
+}
+
+/*pull to display*/
+
+#pull{
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  font-size: 15px;
+  color: rgb(255, 245, 245);
+  background: #f2b3d3;
+  padding: 10px;
+  cursor: pointer;
+  transition: .3s;
+  border-radius: 3px;
+  height: 70px;
+  width: 150px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  
+  /*デフォルトで表示にする*/
+  opacity: 1;
+  visibility: visible;
+}
+
+#visible-adviser{
+  position: fixed;
+  right: 0;
+  bottom: 70px;
+  font-size: 15px;
+  color: rgb(255, 245, 245);
+  background: rgb(117, 117, 117);
+  padding: 10px;
+  cursor: pointer;
+  transition: .3s;
+  border-radius: 3px;
+  height: 70px;
+  width: 150px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  
+  /*デフォルトで表示にする*/
+  opacity: 0;
+  visibility: visible;
+}
+
+#twitter {
+  position: fixed;
+  right: 0;
+  bottom: 140px;
+}
+
+
+/*contents*/
+
+#tutrial {
+  margin-right: 100px;
+  font-size: 20px;
+}
+
+#tutrial-link {
+  font-size: 25px;
+  color: #4e42ff;
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 100px;
+}
+#tutrial-link:hover {
+  color: #7972db;
+}
+
+#world-link {
+  font-size: 25px;
+  color: #ff5842;
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 50px;
+}
+
+#world-link:hover {
+  color: #d48075;
+}
+
+/*form*/
+
+.space {
+  height: 20px;
+  width: 100%;
+}
+
+
+.player-info-register {
+  margin: 20px;
+  padding: 30px;
+  width: 90%;
+  border-radius: 5px;
+  border-color: #ece8e8;
+  border-width: 2px;
+  border-style: solid;
+}
+
+
+
+#register-player-info-button {
+  height: 50px;
+  width: 150px;
+  font-size: 30px;
+  margin: 0 0 20px 250px;
+  border-radius: 25px;
+  border-width: 0px;
+  background-color: rgb(218, 218, 218);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+}
+#register-player-info-button:hover {
+  color: #ffffff;
+  background-color: #75e6ad;
+  box-shadow: 0px 15px 20px rgba(46, 229, 153, 0.4);
+}
+#register-player-info-button:active {
+  color: #ffffff;
+  background-color: #277e4e;
+}
+#register-player-info-button:disabled {
+  background: #c9c9c9;
+  pointer-events: none;
+}
+
+#register-player-info:hover {
+  border-width: 3px;
+  border-radius: 2px;
+  border-color: #0066ff;
+}
+
+.player-info-form {
+  border: 3px solid #999;
+  border-radius: 2px;
+  height: 40px;
+  width: 500px;
+  font-size: 20px;
+  display:flex;
+  margin: 10px;
+}
+.player-info-form:focus {
+  border: 3px solid #4e42ff;
+}
+.player-info-form:disabled {
+  background: #c9c9c9;
+}
+
+
+
+
+/*other*/
+.annotation {
+  display: inline-block;
+}
+
+.whole {
+    width: 950px;
+    text-align: left;
+}
+
+.display {
+  
+  display: inline-block;
+  vertical-align: top;
+}
+

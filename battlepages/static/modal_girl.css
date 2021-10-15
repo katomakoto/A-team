@@ -1,0 +1,66 @@
+.modal {
+  display: none;  
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.2);  
+  transition: opacity 300ms ease-in-out;
+}
+
+.modal:target {
+  display: block;
+}
+
+.modal__content {
+  position: absolute;
+  width: 100%;
+  max-width: 800px;
+  height: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  top: 45%;
+  left: 50%;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.25);
+  transform: translateX(-50%) translateY(-50%);
+  pointer-events: auto;
+}
+
+.congratulations {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: scroll;
+  height: 450px;
+}
+.congratulations::-webkit-scrollbar-track {
+  background: #ffffff;
+  border-radius: 5px;
+}
+
+.congratulations img {
+  height: 420px;
+}
+
+.close {
+  display: block;
+  position: absolute;
+  top: -26px;
+  right: 3px;
+  padding: 40px 5px;
+  font-size: 60px;
+  line-height: 23px;
+  color: rgba(0,0,0,0.1);
+  transform: rotate(45deg);
+  cursor: pointer;
+  transition: all 50ms ease-in-out;
+  text-decoration:none;
+}
+
+.close:hover {
+  color: rgba(0,0,0,0.25);
+}

@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+{%csrf_token%}
+<!--{% load static %}-->
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" type="image/png" href="https://res.cloudinary.com/hx3z2s9d0/image/upload/v1577103870/icon.png">
+    <title id="master-title">HIT AND BLOW With a GIRL</title>
+</head>
+
+<body>
+    <div id="openModal" class="modal">
+        <div class="modal__content">
+            <a class="close" id="close-modal">+</a>
+            <div class="congratulations">
+                <div><b id="cong-message">とある日...</b></div>
+                <div><img id="cong-img" src="https://res.cloudinary.com/hx3z2s9d0/image/upload/v1634034488/start_game/clickToStart.png" /></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="title margin">
+            <p id="title">HIT AND BLOW With a GIRL</p>
+        </div>
+        <a class="pull-button" id="pull" href="#game-display">ゲーム画面に合わせる</a>
+        <a class="pull-button" id="visible-adviser">アシスタントの再表示</a>
+        <a id="twitter" href="https://twitter.com/habwithagirl" target="_blank" rel="noopener noreferrer">
+            <img height="60px" src="https://res.cloudinary.com/hx3z2s9d0/image/upload/v1634035566/start_game/twitterIcon.png">
+        </a>
+        
+        <div class="content" id="manage-display">
+            <div class="contents margin">
+                
+
+                <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet" type="text/css">
+                <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+                <!--link rel="stylesheet" href="{% static 'style.css' %}"-->
+                
+                <link rel="stylesheet" href="{% static 'style.css' %}">
+                <link rel="stylesheet" href="{% static 'style_button.css' %}">
+                <link rel="stylesheet" href="{% static 'table.css' %}">
+                <link rel="stylesheet" href="{% static 'right-hand.css' %}">
+                <link rel="stylesheet" href="{% static 'log-display.css' %}">
+                <link rel="stylesheet" href="{% static 'toggle-switch.css' %}">
+                <link rel="stylesheet" href="{% static 'modal_girl.css' %}">
+                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+                <link rel="stylesheet" href="{% static 'style_2.css' %}">
+                <script src="{% static 'table.js' %}"></script>
+                <script src="{% static 'player_form.js' %}"></script>
+                
+                <script src="{% static 'game_api.js' %}"></script>
+
+                <div class="except-for-log">
+
+                    <div class="annotation" id="tutrial"> </div>
+                    <div class="annotation"><a id="tutrial-link" href="javascript:void(0);" onclick='display_modal("https://res.cloudinary.com/hx3z2s9d0/image/upload/v1634030087/start_game/tutrial.png", "ゲーム説明", "1700px")'>ゲームのやり方</a></div>
+                    <div class="annotation"><a id="world-link" href="javascript:void(0);" onclick='start_game_display()'>ストーリー</a></div>
+
+                    <!--hr-->
+
+                    <div class="player-info-register" id="register-display">
+                        <div class="form-block">
+                            <div class="toggle-text-block">
+                                <div class="annotation">個人戦(normal)の場合オンにしてください</div>
+                            </div>
+                            <div class="toggle-block">
+                                <div class="toggle-switch">
+                                    <input id="toggle-individual-normal" class="toggle-input" type='checkbox' />
+                                    <label for="toggle" class="toggle-label"/>
+                                    <span></span>
+                                </div> 
+                            </div>
+
+                            <div class="space"></div>
+                            <div class="toggle-text-block">
+                                <div class="annotation">個人戦(easy)の場合オンにしてください</div>
+                            </div>
+                            <div class="toggle-block">
+                                <div class="toggle-switch">
+                                    <input id="toggle-individual-easy" class="toggle-input" type='checkbox'/>
+                                    <label for="toggle" class="toggle-label"/>
+                                    <span></span>
+                                </div> 
+                            </div>
+                            
+
+                            <hr>
+                            <div class="toggle-text-block">
+                                <div class="annotation">CPUとの対戦の場合オンにしてください</div>
+                            </div>
+                            <div class="toggle-block">
+                                <div class="toggle-switch">
+                                    <input id="toggle-cpu" class="toggle-input" type='checkbox' />
+                                    <label for="toggle" class="toggle-label"/>
+                                    <span></span>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="player-info-register" id="player-block-below">
+                        <div class="form-block">
+                            <div class="annotation">プレイヤーIDを入力してください</div>
+                            <div class="annotation"><a href="javascript:void(0);" onclick="auto_input_form('6839fe8a-78ce-4d4c-92af-1962aa3b3cc5', 'A');">(自動入力：A)</a></div>
+                            <div class="annotation"><a href="javascript:void(0);" onclick="auto_input_form('7ae6a8d9-e168-46c0-9d5b-68ab13e383b0', 'A2');">(自動入力：A2)</a></div>
+                            <input type="text" class="player-info-form" id="player-id" placeholder="例)6839fe8a-78ce-4d4c-92af-1962aa3b3cc5">
+                            <div class="annotation">プレイヤー名を入力してください</div>
+                            <input type="text" class="player-info-form" id="player-name" placeholder="例)A">
+                        </div>
+                        <div class="form-block">
+                            <div class="space"></div>
+                            <div class="toggle-text-block">
+                                <div class="annotation">部屋番号を指定する場合はオンにしてください</div>
+                            </div>
+                            <div class="toggle-block">
+                                <div class="toggle-switch">
+                                    <input id="toggle-assign-room" class="toggle-input" type='checkbox' />
+                                    <label for="toggle" class="toggle-label"/>
+                                    <span></span>
+                                </div> 
+                            </div>
+                            <input type="text" class="player-info-form" id="room-num" placeholder="1000～1999の整数" disabled="disabled">
+                            <hr>
+                            <div class="toggle-text-block">
+                                <div class="annotation">対戦相手に当ててもらう文字列を入力してください</div>
+                            </div>
+                            <input type="text" class="player-info-form" id="hidden-number" value="01234">
+                        </div>
+                        
+                        <div class="space"></div>
+                        
+                    </div>
+                    <button type="button" id="register-player-info-button" onclick="">スタート</button>
+                    <hr>
+
+                    <!--hr-->
+                    
+                    <div class="whole">
+                        <!--div class="box-title" id="set-display"><a href="#set-display">ゲーム画面</a></div-->
+                        <div class="display" id="game-display">
+                            <div class="display-block" id="place-of-table">
+                                <div class="side" id="right-hand">
+                                    <div class="right-part" id="guess-number-area">
+                                        <form name="">
+                                            <input type="text" class="guess-num" id="number0" size="1" maxlength="1" onkeyup="nextfeild(this)" onkeydown="clearfield(this)">
+                                            <input type="text" class="guess-num" id="number1" size="1" maxlength="1" onkeyup="nextfeild(this)" onkeydown="clearfield(this)">
+                                            <input type="text" class="guess-num" id="number2" size="1" maxlength="1" onkeyup="nextfeild(this)" onkeydown="clearfield(this)">
+                                            <input type="text" class="guess-num" id="number3" size="1" maxlength="1" onkeyup="nextfeild(this)" onkeydown="clearfield(this)">
+                                            <input type="text" class="guess-num" id="number4" size="1" maxlength="1" onkeyup="nextfeild(this)" onkeydown="clearfield(this)">
+                                        </form>
+                                    </div>
+                                    <div class="right-part">
+                                        <div class="button-container">
+                                            <button type="button" class="input_num_button" id="button_0" onclick="num_button(this)">0</button>
+                                            <button type="button" class="input_num_button" id="button_1" onclick="num_button(this)">1</button>
+                                            <button type="button" class="input_num_button" id="button_2" onclick="num_button(this)">2</button>
+                                            <button type="button" class="input_num_button" id="button_3" onclick="num_button(this)">3</button>
+                                            <button type="button" class="input_num_button" id="button_4" onclick="num_button(this)">4</button>
+                                            <button type="button" class="input_num_button" id="button_5" onclick="num_button(this)">5</button>
+                                            <button type="button" class="input_num_button" id="button_6" onclick="num_button(this)">6</button>
+                                            <button type="button" class="input_num_button" id="button_7" onclick="num_button(this)">7</button>
+                                        </div>
+                                        <div class="button-container">
+                                            <button type="button" class="input_num_button" id="button_8" onclick="num_button(this)">8</button>
+                                            <button type="button" class="input_num_button" id="button_9" onclick="num_button(this)">9</button>
+                                            <button type="button" class="input_num_button" id="button_a" onclick="num_button(this)">a</button>
+                                            <button type="button" class="input_num_button" id="button_b" onclick="num_button(this)">b</button>
+                                            <button type="button" class="input_num_button" id="button_c" onclick="num_button(this)">c</button>
+                                            <button type="button" class="input_num_button" id="button_d" onclick="num_button(this)">d</button>
+                                            <button type="button" class="input_num_button" id="button_e" onclick="num_button(this)">e</button>
+                                            <button type="button" class="input_num_button" id="button_f" onclick="num_button(this)">f</button>
+                                        </div>
+                                    </div>
+                                    <div class="right-part">
+                                        <button type="button" class="manage_button" id="post-button" disabled="disabled" >POST</button>
+                                        <button type="button" class="manage_button" id="clear-button" onclick="all_clear()">AC</button>
+                                        <div class="game-status">
+                                            <div class="turn-status" id="turn-status">
+                                                <a >状態: </a><a id="turn-text">開始準備中</a>
+                                            </div>
+                                            <div class="opponent-status" id="opponent-status">
+                                                <div class="opponent-text">相手のステータス → </div>
+                                                <div class="opponent-text" id="opponent-guess">xxxxx</div>
+                                                <div class="opponent-text">(</div>
+                                                <div class="opponent-text" id="opponent-hit-number">0</div><div class="opponent-text">hit</div>
+                                                <div class="opponent-text" id="opponent-blow-number">0</div><div class="opponent-text">blow</div>
+                                                <div class="opponent-text">)</div>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="manage_button" id="give-up-button" disabled="disabled" >GIVE UP</button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+                        </div>
+                    </div>   
+                </div>
+                <div id="place-of-log">
+                    <div class="icon"><img id="girl" name="girl" src="https://res.cloudinary.com/hx3z2s9d0/image/upload/v1577196192/ritsu_1.png"/></div>
+                    <div id="girl-name">知能 あかり</div>
+                    <div class="balloon">
+                        <div class="log-container" id="log-container">
+                            <ul id="log"></ul>
+                        </div>
+                    </div>
+                </div>
+        
+            </div>
+            
+        </div>
+        
+        <div class="footer">
+            <div class="footer-text">
+                <a>enjoy the game!!!</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        let headings = [{label: "Turn", for: "n"}, {label: "Guess", for: "guess"},{label: "Hit", for: "hit"},{label: "Blow", for: "blow"}];
+
+        let rows = [/*{n: 1,guess: "abcde",hit: "0",blow: "0"}*/
+                    ];
+        var table_with_api = new GameApi(headings, rows);
+
+        var mode = 0;
+        var r_id = "";
+
+        $(function(){
+            /* 行をクリックすると入力 */
+            $(document).on('click','.click-and-input', function(){
+                var guessed_num_text = $(this).children('td')[1].innerText;
+                $('#number0').val(guessed_num_text.substr(0, 1));
+                $('#number1').val(guessed_num_text.substr(1, 1));
+                $('#number2').val(guessed_num_text.substr(2, 1));
+                $('#number3').val(guessed_num_text.substr(3, 1));
+                $('#number4').val(guessed_num_text.substr(4, 1));
+            });
+
+            // toggle-individual-normal
+            $('#toggle-individual-normal').click(function(){
+                if($("#toggle-individual-normal").prop('checked')) {
+                    
+                    //disabledにする
+                    $("#toggle-individual-easy").prop('disabled', true);
+                    $("#toggle-cpu").prop('disabled', true);
+                    $("#player-id").prop('disabled', true);
+                    $("#player-name").prop('disabled', true);
+                    $("#toggle-assign-room").prop('disabled', true);
+                    $("#hidden-number").prop('disabled', true);
+
+                    //status部分
+                    $("#give-up-button").prop('disabled', false);
+                    $("#turn-status").css('z-index', -1);
+                    $("#opponent-status").css('z-index', -1);
+
+                    //自動入力
+                    $("#toggle-assign-room").prop('checked', false);
+                    $("#room-num").prop('disabled', true);
+                    $("#player-id").prop('value', "6839fe8a-78ce-4d4c-92af-1962aa3b3cc5");
+                    $("#player-name").prop('value', "A");
+                    $("#hidden-number").prop('value', "01234");
+
+                    
+                    var blockEl = document.getElementById("player-block-below");
+                    blockEl.style.visibility = "hidden";
+                    blockEl.style.height = 0;
+                }else {
+                    $("#toggle-individual-easy").prop('disabled', false);
+                    $("#toggle-cpu").prop('disabled', false);
+                    $("#player-id").prop('disabled', false);
+                    $("#player-name").prop('disabled', false);
+                    $("#toggle-assign-room").prop('disabled', false);
+                    $("#hidden-number").prop('disabled', false);
+
+                    $("#give-up-button").prop('disabled',true);
+                    $("#turn-status").css('z-index', 1);
+                    $("#opponent-status").css('z-index', 1);
+
+                    var blockEl = document.getElementById("player-block-below");
+                    blockEl.style.visibility = "visible";
+                    blockEl.style.height = "auto";
+                }
+            });
+
+            // toggle-individual-easy
+            $('#toggle-individual-easy').click(function(){
+                if($("#toggle-individual-easy").prop('checked')) {
+                    $("#toggle-individual-normal").prop('disabled', true);
+                    $("#toggle-cpu").prop('disabled', true);
+                    $("#player-id").prop('disabled', true);
+                    $("#player-name").prop('disabled', true);
+                    $("#toggle-assign-room").prop('disabled', true);
+                    $("#hidden-number").prop('disabled', true);
+
+                    $("#give-up-button").prop('disabled', false);
+                    $("#turn-status").css('z-index', -1);
+                    $("#opponent-status").css('z-index', -1);
+
+                    $("#button_a").prop('disabled', true); $("#button_b").prop('disabled', true); $("#button_c").prop('disabled', true); $("#button_d").prop('disabled', true); $("#button_e").prop('disabled', true); $("#button_f").prop('disabled', true);
+                    $("#button_a").css('pointer-events', "none"); $("#button_b").css('pointer-events', "none"); $("#button_c").css('pointer-events', "none"); $("#button_d").css('pointer-events', "none"); $("#button_e").css('pointer-events', "none"); $("#button_f").css('pointer-events', "none"); 
+
+                    $("#toggle-assign-room").prop('checked', false);
+                    $("#room-num").prop('disabled', true);
+                    $("#player-id").prop('value', "6839fe8a-78ce-4d4c-92af-1962aa3b3cc5");
+                    $("#player-name").prop('value', "A");
+                    $("#hidden-number").prop('value', "01234");
+
+                    var blockEl = document.getElementById("player-block-below");
+                    blockEl.style.visibility = "hidden";
+                    blockEl.style.height = 0;
+                }else {
+                    $("#toggle-individual-normal").prop('disabled', false);
+                    $("#toggle-cpu").prop('disabled', false);
+                    $("#player-id").prop('disabled', false);
+                    $("#player-name").prop('disabled', false);
+                    $("#toggle-assign-room").prop('disabled', false);
+                    $("#hidden-number").prop('disabled', false);
+
+                    $("#give-up-button").prop('disabled', true);
+                    $("#turn-status").css('z-index', 1);
+                    $("#opponent-status").css('z-index', 1);
+
+                    $("#button_a").prop('disabled', false); $("#button_b").prop('disabled', false); $("#button_c").prop('disabled', false); $("#button_d").prop('disabled', false); $("#button_e").prop('disabled', false); $("#button_f").prop('disabled', false);
+                    $("#button_a").css('pointer-events', "auto"); $("#button_b").css('pointer-events', "auto"); $("#button_c").css('pointer-events', "auto"); $("#button_d").css('pointer-events', "auto"); $("#button_e").css('pointer-events', "auto"); $("#button_f").css('pointer-events', "auto"); 
+
+                    var blockEl = document.getElementById("player-block-below");
+                    blockEl.style.visibility = "visible";
+                    blockEl.style.height = "auto";
+                }
+            });
+
+            // toggle-cpu
+            $('#toggle-cpu').click(function(){
+                if($("#toggle-cpu").prop('checked')) {
+                    $("#toggle-individual-easy").prop('disabled', true);
+                    $("#toggle-individual-normal").prop('disabled', true);
+                    $("#player-id").prop('disabled', true);
+                    $("#player-name").prop('disabled', true);
+                    $("#toggle-assign-room").prop('disabled', true);
+                    //$("#hidden-number").prop('disabled', true);
+
+                    $("#give-up-button").prop('disabled', false);
+
+                    $("#toggle-assign-room").prop('checked', false);
+                    $("#room-num").prop('disabled', true);
+                    $("#player-id").prop('value', "6839fe8a-78ce-4d4c-92af-1962aa3b3cc5");
+                    $("#player-name").prop('value', "A");
+                    //$("#hidden-number").prop('value', "01234");
+                }else {
+                    $("#toggle-individual-easy").prop('disabled', false);
+                    $("#toggle-individual-normal").prop('disabled', false);
+                    $("#player-id").prop('disabled', false);
+                    $("#player-name").prop('disabled', false);
+                    $("#toggle-assign-room").prop('disabled', false);
+                    //$("#hidden-number").prop('disabled', false);
+
+                    $("#give-up-button").prop('disabled', true);
+                }
+            });
+            
+            // room-numを有効にするかどうか
+            $('#toggle-assign-room').click(function(){
+                if($("#toggle-assign-room").prop('checked')) {
+                    $("#room-num").prop('disabled', false);
+                }else {
+                    $("#room-num").prop('disabled', true);
+                }
+            });
+        });
+
+        //post player info and start game
+        document.getElementById("register-player-info-button").onclick = function(){
+            var p_id = document.getElementById("player-id").value;
+            var p_name = document.getElementById("player-name").value;
+            r_id = "";
+            var h_number = document.getElementById("hidden-number").value;
+
+            mode = 0; //0:対人, 1:normal , 2:easy , 3:CPU
+            if (document.getElementById("toggle-individual-normal").checked) mode = 1;
+            else if (document.getElementById("toggle-individual-easy").checked) mode = 2;
+            else if (document.getElementById("toggle-cpu").checked) mode = 3;
+
+            if (mode == 1 || mode == 2){
+                $("#turn-status").css('z-index', -1);
+                $("#opponent-status").css('z-index', -1);
+            }
+
+            var response = table_with_api.get_all_rooms();
+            response.then(function(data){
+                var new_room_id = get_new_room_id(data);
+                if (document.getElementById("toggle-assign-room").checked == true) {
+                    r_id = document.getElementById("room-num").value;
+                }else{
+                    r_id = new_room_id;
+                }
+                console.log('target room id : ' + r_id);
+                reset_and_enter_room(p_id, p_name, r_id, h_number);
+
+            });            
+        }
+        
+        function reset_and_enter_room(p_id, p_name, r_id, h_number){
+            if (check_player_info(p_id, p_name, r_id, h_number)){
+                //テーブルのリセット
+                const elements = document.getElementsByClassName('click-and-input')
+                while (elements.length) {
+                    elements.item(0).remove()
+                }
+                var response_enter = table_with_api.enter_room(p_id, p_name, r_id, h_number);
+                response_enter.then(function(data){
+                    //個人戦・CPU対戦の時の処理
+                    if (mode != 0){
+                        document.getElementById("give-up-button").disabled = false;
+                        
+                        var response_django = post_django(true, r_id, mode, h_number) //from kato 1=normal
+                        //答えを記録しておく
+                        response_django.then(function(data){
+                            table_with_api.true_opponent_hidden = data.h_number;
+                            console.log(data.h_number);
+                        });
+                    }
+                });
+                console.log("form is ok");
+                document.getElementById("register-player-info-button").disabled = true;
+            }
+        }
+
+        function check_player_info(p_id, p_name, r_id, h_number){
+            if (!((p_id == "6839fe8a-78ce-4d4c-92af-1962aa3b3cc5" && p_name == "A") || (p_id == "7ae6a8d9-e168-46c0-9d5b-68ab13e383b0" && p_name == "A2"))){
+                status_logger("正しいID, プレイヤー名を入力してください");
+                return false;
+            }
+            var r_id_num = parseInt(r_id)
+            if (!((r_id_num >= 1000 && r_id_num <= 1999))){
+                status_logger("正しい部屋番号を入力してください");
+                return false;
+            }
+            if (!(check_valid_num(h_number) == h_number)){
+                status_logger("適切な文字列を指定してください");
+                return false;
+            }
+            return true;
+        }
+
+        function get_new_room_id(data_json_array){
+            //1000-1999の部屋を抽出
+            var array_valid = new Array();
+            for (var j=0; j<data_json_array.length; j++){
+                var id_tmp = parseInt(data_json_array[j].id);
+                if (id_tmp >= 1000 && id_tmp <= 1999){
+                    array_valid.push(id_tmp);
+                }
+            }
+            //使用されていない部屋番号を得る
+            for (var k=1000; k<2000; k++){
+                if (!(array_valid.includes(k))){
+                    console.log('new room id : %d', k);
+                    return k.toString();
+                }
+            }
+            console.log("no rooms");
+            return "";
+        }
+
+        
+        // post button
+        document.getElementById("post-button").onclick = function(){
+            //get num form (check text)
+            num_status = get_num_form();            
+            if ((num_status != "input with duplicate") && (num_status != "input not properly") ){
+                //post and get info from backend return: json {n: "",guess: "abcde", hit: "0", blow: "0"}
+                //////////////////////////////////
+
+                //table_with_api.add_row({n: "",guess: num_status, hit: "0", blow: "0"});
+                var response_post_guess = table_with_api.post_guess(num_status);
+                response_post_guess.then(function(data){
+                    //個人戦・CPU対戦の時の処理
+                    if (mode != 0){
+                        post_django(false, r_id, mode, num_status); //from kato
+                    }
+                })
+
+                
+            }else if (num_status == "input with duplicate"){
+                status_logger("重複のないよう入力してね！");
+            }else if (num_status == "input not properly"){
+                status_logger("正しい文字数・適切な文字を入力しよう！");
+            }
+            
+        }
+
+        //give up button
+        document.getElementById("give-up-button").onclick = function(){
+            table_with_api.flag_give_up = true;
+            document.getElementById("give-up-button").disabled = true;
+        }
+            
+    </script>
+    
+    <script type="text/javascript" src="{% static 'main.js' %}"></script>
+    <script>
+        //音声データ
+        var music = new Audio("https://res.cloudinary.com/hywy6wr5m/video/upload/v1634032969/%E5%A4%95%E9%99%BD_%E5%90%9B%E3%81%AB%E5%B9%B8%E3%81%82%E3%82%8C_dwyt1v.mp3");
+        music.volume = 0.3;
+        var timer_start_display;
+
+        //modal window
+        document.getElementById("close-modal").onclick = function(){
+            document.getElementById("openModal").style.display = "none";
+            music.pause();
+            clearInterval(timer_start_display);
+        }
+        function display_modal(src, message, height){
+            if (src != null){
+                document.getElementById("cong-img").src = src;
+            }
+            if (message != null){
+                document.getElementById("cong-message").textContent = message;
+            }
+            document.getElementById("openModal").style.display = "block";
+            document.getElementById("cong-img").style.height = height;
+        }
+    </script>
+    <script>
+        var flag_first_time = false;
+        if ($.cookie("first-access") != "on") {
+            $.cookie("first-access", "on", {expires: 30});
+            status_logger("同じ脳トレゲーム好きとして、応援するね！");
+            status_logger("HIT AND BLOWはやったことあるかな？");
+            status_logger("まずは左の「ゲームのやり方」をのぞいてみよう", link="#tutrial-link");
+            flag_first_time = true;
+            display_modal(null, null, "420px");
+        }else{
+            status_logger("また会ったね！");
+        }        
+        document.getElementById("cong-img").onclick = function(){
+            if (flag_first_time){
+                flag_first_time = false;
+                start_game_display()
+            }
+        }
+        
+        //status_logger("準備ができたらスタートしてね！");
+        //status_logger("わたしをクリックするとわたしは非表示できるけど、しない...よね？");
+        //status_logger("また会いたくなったら右下のボタンで会えるから、忘れないでね！");
+        status_logger("数を当てられたらご褒美あげちゃうかも...?なんてね！");
+        status_logger("それではいってみよー！");
+        status_logger("まずはここから！", "#register-display");
+
+        function start_game_display(){
+            display_modal(null, "とある日...", "420px");
+            const folder_img_start = "https://res.cloudinary.com/hx3z2s9d0/image/upload/v1633945719/start_game/";
+            var array_start_img = new Array(folder_img_start + "%E3%82%B9%E3%83%A9%E3%82%A4%E3%83%894_gjdoqy.png",
+                                            folder_img_start + "slide2.png",
+                                            folder_img_start + "slide3.png", 
+                                            "https://res.cloudinary.com/hx3z2s9d0/image/upload/v1634058977/start_game/eyes.jpg",
+                                            folder_img_start + "slide5.png", 
+                                            folder_img_start + "slide6.png", 
+                                            folder_img_start + "slide7.png", )
+            var k = 0;
+            music.currentTime = 0;
+            music.play();
+            $("#cong-img").attr("src", folder_img_start + "slide1.png")
+            timer_start_display = setInterval(function(){
+                //console.log(k);
+                if(k < array_start_img.length) {
+                    $("#cong-img").fadeOut(1000).promise().done(function() {
+                        $("#cong-img").attr("src",array_start_img[k]);
+                        $("#cong-img").fadeIn(1000);
+                        console.log("start img no.%d", k);
+                        //console.log(array_start_img[k]);
+                        k++;
+                    });
+                    
+                }else{
+                    $("#cong-img").attr("src", folder_img_start + "slide8.png");
+                    clearInterval(timer_start_display);
+                }
+            }, 5000);
+        }
+        
+    </script>
+
+    <script>
+        function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = jQuery.trim(cookies[i]);
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+        }
+        var csrftoken = getCookie('csrftoken');
+
+        function csrfSafeMethod(method) {
+            // these HTTP methods do not require CSRF protection
+            return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+        }
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            }
+        });
+
+    </script>
+    
+    
+</body>
+</html>

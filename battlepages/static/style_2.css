@@ -1,0 +1,19 @@
+.container {
+  padding: 0;
+}
+
+.footer {
+  width: 100%;
+  height: 150px;
+  background-color: #f8efec;
+  padding: 0px 200px 0px 200px;
+  text-align: center;
+  display:flex; /* ←これを指定 */
+  align-items: center;
+  color: #f5669d;
+}
+
+.footer-text {
+  display: inline-block;
+  margin: auto;
+}

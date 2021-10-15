@@ -1,0 +1,107 @@
+nav ul{
+  display: table;
+  margin: 0 auto;
+  padding-bottom: 10px;
+  width: 100%;
+  text-align: center;
+}
+nav li{
+  display: table-cell;
+  min-width: 50px;
+}
+nav a{
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  color: #555;
+  padding-bottom: 5px;
+}
+nav li.current{
+  border-bottom: 3px solid #92D050;
+}
+nav li:hover{
+  color: #E7DA66;
+  border-bottom: 3px solid #F0E475;
+}
+
+/*数字入力・送信・AC*/
+.button-container { 
+  padding: 10px 0 10px 0;
+}
+.input_num_button {
+  width: 40px;
+  height: 40px;
+  border-radius: 3px;
+  /*
+  border-color: rgb(252, 77, 77);
+  background: #f1b69b;*/
+  font-size: 25px;
+  border-radius: 7px;
+  border-width: 0px;
+  background-color: rgb(235, 133, 119);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+}
+.input_num_button:hover {
+  color: #ffffff;
+  background-color: #fd9b82;
+  box-shadow: 0px 15px 20px rgba(229, 89, 46, 0.4);
+}
+
+.input-num-button:active {
+  color: #ffffff;
+  background-color: #be5136;
+}
+
+.manage_button {
+  width: 100px;
+  height: 60px;
+  border-radius: 3px;
+  font-size: 30px;
+  display: inline-block;
+  text-align: center;
+}
+
+#post-button {
+  height: 50px;
+  margin: 0 20px 0 60px;
+  border-radius: 25px;
+  border-width: 0px;
+  background-color: rgb(41, 68, 224);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+}
+#post-button:hover {
+  color: #ffffff;
+  background-color: #7593e6;
+  box-shadow: 0px 15px 20px rgba(46, 58, 229, 0.4);
+}
+
+#post-button:active {
+  color: #ffffff;
+  background-color: #27287e;
+}
+#post-button:disabled {
+  background-color: #949494;
+  pointer-events: none;
+}
+
+#clear-button {
+  height: 50px;
+  margin: 0 20px 0 20px;
+  border-radius: 25px;
+  border-width: 0px;
+  background-color: rgb(224, 41, 96);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+}
+#clear-button:hover {
+  color: #ffffff;
+  background-color: #ff6da5;
+  box-shadow: 0px 15px 20px rgba(229, 46, 116, 0.4);
+}
+
+#clear-button:active {
+  color: #ffffff;
+  background-color: #be365f;
+}

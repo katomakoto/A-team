@@ -1,0 +1,19 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+requests = "*"
+pytest = "*"
+numpy = "*"
+django = "==3.1"
+gunicorn = "*"
+django-heroku = "*"
+dj-database-url = "*"
+
+[dev-packages]
+ipykernel = "*"
+
+[requires]
+python_version = "3.9"

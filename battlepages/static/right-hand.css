@@ -1,0 +1,110 @@
+/*right hand*/
+.side {
+  display: inline-block;
+  /*width: 50%;*/
+  vertical-align: top;
+}
+
+#place-of-table #right-hand {
+  order: 2;
+  margin: 0 auto;
+}
+
+.right-part {
+  margin: 0 auto 30px auto;
+}
+
+/* guess num form */
+.guess-num { 
+  display: inline-block;
+  border: 3px solid #999;
+  border-radius: 5px;
+  height: 65px;
+  width: 65px;
+  font-size: 40px;
+  
+  text-align: center;
+}
+
+.guess-num:focus {
+  border: 3px solid #ff9900;
+  
+}
+
+input[type="text"]:focus {
+  outline: 0;
+}
+
+
+/*game-status*/
+.game-status {
+  margin: 20px;
+  padding: 10px;
+  border: solid 2px;
+  border-color: rgb(58, 160, 255);
+  border-radius: 3px;
+  width: 330;
+  background-color: rgb(201, 241, 238);
+}
+
+.turn-status {
+  margin: 10px;
+  position: relative;
+}
+#turn-text {
+  font-size: 20px;
+  font-weight: bold;
+  color: #229e6f;
+}
+
+#opponent-status {
+  position: relative;
+}
+
+.opponent-text {
+  display: inline-block;
+  position: relative;
+}
+
+#opponent-guess {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 3px;
+}
+
+#opponent-hit-number {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 3px;
+}
+
+#opponent-blow-number {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 3px;
+}
+
+#give-up-button {
+  height: 50px;
+  width: 200px;
+  margin: 0 20px 0 60px;
+  border-radius: 25px;
+  border-width: 0px;
+  background-color: rgb(126, 41, 224);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+}
+#give-up-button:hover {
+  color: #ffffff;
+  background-color: #bd75e6;
+  box-shadow: 0px 15px 20px rgba(156, 46, 229, 0.4);
+}
+
+#give-up-button:active {
+  color: #ffffff;
+  background-color: #57277e;
+}
+#give-up-button:disabled {
+  background-color: #949494;
+  pointer-events: none;
+}
